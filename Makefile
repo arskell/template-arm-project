@@ -16,7 +16,7 @@ OBJS_ASM = $(SRCS_ASM:.s=.o)
 	$(CXX) $(FLAGS) -c $(INCLUDE) $^ -o $@
 
 
-$(PROJECT_NAME): $(OBJS_ASM) $(OBJS_C) $(OBJS_CXX)
+$(PROJECT_NAME).hex: $(OBJS_ASM) $(OBJS_C) $(OBJS_CXX)
 	$(CXX) $(FLAGS) $(INCLUDE) $(OBJS_ASM) $(OBJS_C) $(OBJS_CXX) $(LINKER_FLAGS) -o $(PROJECT_NAME).elf
 	$(COPY) -Oihex $(PROJECT_NAME).elf $(PROJECT_NAME).hex
 	$(SZ) $(PROJECT_NAME).hex
